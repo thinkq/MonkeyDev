@@ -95,6 +95,7 @@ function pack(){
 	if [[ ! ${TARGET_APP_PATH} ]] && [[ ${TARGET_IPA_PATH} ]]; then
 		unzip -oqq "${TARGET_IPA_PATH}" -d "${TEMP_PATH}"
 		cp -rf "${TEMP_PATH}/Payload/"*.app "${TARGET_APP_PUT_PATH}"
+		rm -rf "${TEMP_PATH}" || true
 	fi
 	
 	if [ -f "${BUILD_APP_PATH}/embedded.mobileprovision" ]; then
